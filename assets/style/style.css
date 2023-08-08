@@ -1,0 +1,13 @@
+.btn {
+  padding: 1rem 3rem;
+  margin: 10em 2em;
+  background-color: rgba(0, 0, 0, 0.192);
+}
+.slider-container {
+  display: inline-block;
+  text-align: center;
+}
+img {
+  width: 200px;
+  height: 200px;
+}
