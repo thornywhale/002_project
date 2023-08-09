@@ -1,4 +1,4 @@
-.btn {
+/* .btn {
   padding: 1rem 3rem;
   margin: 10em 2em;
   background-color: rgba(0, 0, 0, 0.192);
@@ -10,4 +10,53 @@
 img {
   width: 200px;
   height: 200px;
+} */
+
+/*---------------------*/
+
+:root {
+  font-family: "REM", sans-serif;
+  width: 600px;
+  height: 300px;
+  padding: 20px;
+}
+h2{
+  margin: 20px 0;
+}
+.btn-container {
+  padding-bottom: 20px;
+}
+button {
+  font-weight: bolder;
+  text-transform: uppercase; 
+  background-color: white;
+  margin: 0 2px;
+  padding: 15px 20px;
+  border: 2px solid #7bd5ff;
+}
+.flex-grandparent{
+  display: flex;
+  box-sizing: border-box;
+  width: 600px;
+  height: 300px;
+  border: 2px solid #7bd5ff;
+}
+.flex-parent {
+  width: inherit;
+  display: flex;
+  flex-direction: row-reverse;
+  box-sizing: border-box;
+  border: 1px dotted gray;
+  margin: 8px;
+}
+.flex-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 2px solid white;
+  color: rgb(0, 78, 124);
+  background-color: #7bd5ff;
+  font-size: 28px;
 }
