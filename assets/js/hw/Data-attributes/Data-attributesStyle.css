@@ -1,0 +1,56 @@
+:root {
+  font-family: "REM", sans-serif;
+  width: 600px;
+  height: 300px;
+  margin: 30px;
+}
+.btn-container {
+  text-align: center;
+  padding-bottom: 20px;
+}
+button {
+  font-weight: bolder;
+  text-transform: uppercase;
+  background-color: white;
+  padding: 15px 20px;
+  border: 2px solid #7bd5ff;
+  box-shadow: 10px #7bd5ff;
+}
+button:nth-child(1) {
+  cursor: e-resize;
+}
+button:nth-child(2) {
+  cursor: e-resize;
+}
+button:nth-child(3) {
+  cursor: n-resize;
+}
+button:nth-child(4) {
+  cursor: n-resize;
+}
+.wrapper {
+  display: flex;
+  box-sizing: border-box;
+  width: 600px;
+  height: 300px;
+  border: 2px solid #7bd5ff;
+}
+.flex-parent {
+  width: inherit;
+  display: flex;
+  border: 1px dotted gray;
+  margin: 8px;
+}
+.flex-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 40px;
+  border: 2px solid white;
+  color: rgb(0, 78, 124);
+  background-color: #7bd5ff;
+  font-size: 28px;
+}
+.flex-child:last-child {
+  margin: 20px;
+}

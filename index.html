@@ -11,29 +11,35 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/style/style.css" />
+    <script defer src="./assets/js/DBs/actors.js"></script>
     <script defer src="./assets/js/sandbox.js"></script>
     <script defer src="./assets/js/Slider.js"></script>
     <script defer src="./assets/js/main.js"></script>
   </head>
   <body>
+    <div id="root">
+      <div class="wrapper">
+        <section class="actors-container">
+          <h1 class="actors-title">actors</h1>
+          <ul class="actors-list">
+            <li class="actors-item">
+              <article class="actor-card">
+                <div class="actor-photo-wrapper">
+                  <img
+                    src="https://www.filmibeat.com/img/popcorn/profile_photos/tom-cruise-20190610151455-4602.jpg"
+                    alt=""
+                    class="actor-photo"
+                  />
+                </div>
+                <h2 class="actor-name">Tom Cruise</h2>
+                <p class="actor-description">July 3, 1962</p>
+              </article>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
     <section>
-      <h2>flex-direction</h2>
-      <div class="btn-container">
-        <button data-flex-direction="row">row</button>
-        <button data-flex-direction="row-reverse">row-reverse</button>
-        <button data-flex-direction="column">column</button>
-        <button data-flex-direction="column-reverse">column-reverse</button>
-      </div>
-      <div class="flex-grandparent">
-        <div class="flex-parent">
-          <div class="flex-child">1</div>
-          <div class="flex-child">2</div>
-          <div class="flex-child">3</div>
-          <div class="flex-child">4</div>
-        </div>
-      </div>
-    </section>
-    <!-- <section>
       <button>Log In</button>
       <button>Sign Up</button>
       <button id="unique" ref="123" onclick="console.log(44)">click me</button>
@@ -44,6 +50,6 @@
       </div>
       <button class="btn">prev</button>
       <button class="btn">next</button>
-    </section> -->
+    </section>
   </body>
 </html>
