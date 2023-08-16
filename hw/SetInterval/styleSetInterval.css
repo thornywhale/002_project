@@ -1,0 +1,11 @@
+div{
+  text-align: center;
+  margin: 100px 0;
+}
+h1{
+  display: block;
+  margin: 10px;
+  color: olive;
+  border: 3px solid olive;
+  border-radius: 50%;
+}

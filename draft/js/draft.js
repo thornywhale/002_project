@@ -1,4 +1,4 @@
-"use scrict";
+"use strict";
 
 // const imagesDB = [
 //   "https://upload.wikimedia.org/wikipedia/commons/2/27/Commander_%28Biden_dog%29_in_February_2022.jpg",
@@ -62,9 +62,6 @@ const adder2 = createAdder(50);
 console.log(adder2(-10));
 console.log(adder2(10));
 console.log(adder2("10"));
-
-
-"use strict";
 
 // const unique = document.getElementById("unique");
 // unique.addEventListener("click", log44);
@@ -161,3 +158,180 @@ console.log(adder2("10"));
 // }
 
 //---------------
+
+const root = document.getElementById("root");
+
+const arrayCards = actors
+  .filter((actor) => actor.name && actor.name.trim())
+  .map((actor) => createActorsCard(actor));
+const h1 = createElement(
+  "h1",
+  { classNames: ["actors-title"] },
+  document.createTextNode("Actors")
+);
+const ulActors = createElement(
+  "ul",
+  { classNames: ["actors-list"] },
+  ...arrayCards
+);
+const sectionContainer = createElement(
+  "section",
+  { classNames: ["actors-container"] },
+  h1,
+  ulActors
+);
+const divWrapper = createElement(
+  "div",
+  { classNames: ["wrapper", "nameclass"] },
+  sectionContainer
+);
+
+root.append(divWrapper);
+
+function createActorsCard(actor) {
+  const h2Initials = createElement(
+    "h2",
+    {
+      classNames: ["actor-initials"],
+      styles: { backgroundColor: stringToColour(actor.name) },
+    },
+    document.createTextNode(actor.name[0])
+  );
+
+  const divPhotoWrapper = createElement(
+    "div",
+    { classNames: ["actor-photo-wrapper"] },
+    h2Initials
+  );
+
+  const img = createElement("img", {
+    classNames: ["actor-photo"],
+    attributes: { src: actor.photo, alt: actor.name },
+    events: { load: handleImgLoad(divPhotoWrapper) },
+  });
+
+  const h2Name = createElement(
+    "h2",
+    { classNames: ["actor-name"] },
+    document.createTextNode(actor.name)
+  );
+  const pDesc = createElement(
+    "p",
+    { classNames: ["actor-description"] },
+    document.createTextNode(actor.birthdate || "month day, year")
+  );
+
+  const article = createElement(
+    "article",
+    { classNames: ["actor-card"] },
+    divPhotoWrapper,
+    h2Name,
+    pDesc
+  );
+  const li = createElement("li", { classNames: ["actor-item"] }, article);
+  return li;
+}
+
+/**
+ *
+ * @param {string} name
+ * @returns {string}
+ */
+function getActorsInitials(name) {
+  return name
+    .trim()
+    .split(" ")
+    .map((initial) => initial[0].toUpperCase())
+    .join("");
+}
+
+console.log(getActorsInitials(" Tom Cruise "));
+
+const regexPIB = /[А-ЯҐЄІЇ][а-яґєії]{1,15} [А-ЯҐЄІЇ].[А-ЯҐЄІЇ]./;
+
+//----------------------------------
+
+const user = {
+  firstName: 'Brad',
+  lastName: 'Pitt',
+  age: 50,
+  isMale: true,
+  pet: undefined,
+  children: ['Anna', undefined, 'Tom'],
+  address: {
+    town: 'NY',
+    street: 12,
+    home: undefined,
+    qqqq:{
+      prop:12
+    }
+  },
+  ukrainian: null,
+  getFullName() {
+    return this.firstName + ' ' + this.lastName;
+  },
+  [Symbol('my symbol')]: 123,
+};
+const userSerialized = JSON.stringify(user);
+const userDeSerialized = JSON.parse(userSerialized);
+console.log(userSerialized);
+console.log(userDeSerialized);
+
+//-----------------------------------
+
+fetch('http://127.0.0.1:5500/assets/json/data.json')
+  .then((response) => response.json())
+  .then((data) => {
+    console.table(data);  //users
+    const users = data;
+    //works with users
+  })
+  .catch((error)=>{
+    console.log(error);
+  })
+  .finally(()=>{
+    console.log('finally');
+  })
+
+const promiseResult = promise.then((response) => {
+  const promiseResult = response.json();
+  return promiseResult;
+});
+promiseResult.then((users) => {
+  console.table(users);
+});
+
+promise.then(
+  (response) => {
+    console.log('ok');
+    const promiseResult = response.json();
+    promiseResult.then(
+      (users) => {
+        console.log('ok data');
+        console.table(users);
+      },
+      (error) => {
+        console.log('not data');
+        console.log(error);
+      }
+    );
+  },
+  (error) => {
+    console.log('not');
+    console.log(error);
+  }
+);
+
+//-------------------------------
+
+const url = 'http://127.0.0.1:5500/assets/json/data.json';
+fetch(url)
+  .then((response) => response.json())
+  .then((data) => {
+    for (const user of data) {
+      console.log(user.firstName);
+    }
+  })
+  .catch((error)=>{
+    console.log(error);
+  })
